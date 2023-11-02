@@ -20,7 +20,8 @@ const app = new Elysia()
       typeDefs: typeDefsSchema,
       resolvers: {
         Query: {
-          books: () => {
+          books: (_, args) => {
+            console.log("[LOG] 🦁  args :", args)
             return [
               {
                 title: "Elysia",
@@ -43,8 +44,6 @@ const app = new Elysia()
   )
   .listen(3000)
 
-type A = (typeof app)["_use"][0]["_options"]["resolvers"]["Query"]["books"]
-//   ^?
 console.log(
   `🦊 Elysia is running at ${app.server?.hostname}:${app.server?.port}`
 )

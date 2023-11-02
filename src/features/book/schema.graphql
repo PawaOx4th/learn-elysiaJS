@@ -18,6 +18,6 @@ type Book {
   }
 
   type Query {
-    books: [Book]
+    books(name:String): [Book]
     authors: [Author]
   }
