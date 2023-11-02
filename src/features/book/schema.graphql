@@ -1,23 +1,10 @@
-type Book {
+type User {
+    userId: Int
+    id: Int
     title: String
-    author: String
-    age: Int
-  }
+    completed: Boolean
+}
 
-  type Profile {
-    firstName: String
-    age: Int
-    lastName: String
-    address: String
-  }
-
-  type Author {
-    name: String
-    books: [Book]
-    profile: Profile
-  }
-
-  type Query {
-    books(name:String): [Book]
-    authors: [Author]
-  }
+type Query {
+    users(id: Int!): [User!]!
+}

@@ -1,0 +1,8 @@
+{
+    "prettier.configPath": "prettier.config.mjs",
+    "[graphql]": {
+        "editor.formatOnSave": true,
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "vscode-graphql.useSchemaFileDefinitions": true
+}
