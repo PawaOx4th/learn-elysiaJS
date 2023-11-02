@@ -1,7 +1,50 @@
-import { Elysia } from "elysia";
+import apollo, { gql } from "@elysiajs/apollo"
+import { Elysia } from "elysia"
+import { typeDefs } from "./features/book/schema"
+import { readFileSync } from "fs"
 
-const app = new Elysia().get("/", () => "Hello Elysia").listen(3000);
+const getDataBook = () => ({
+  title: "Elysia",
+  author: "Kaen",
+})
 
+const typeDefsSchema = readFileSync(
+  import.meta.dir.concat("/features/book/schema.graphql"),
+  {
+    encoding: "utf-8",
+  }
+)
+const app = new Elysia()
+  .use(
+    apollo({
+      typeDefs: typeDefsSchema,
+      resolvers: {
+        Query: {
+          books: () => {
+            return [
+              {
+                title: "Elysia",
+                author: "Kaen",
+              },
+            ]
+          },
+          authors: () => {
+            const responseBook = getDataBook()
+            return [
+              {
+                name: "Kaen",
+                books: [responseBook],
+              },
+            ]
+          },
+        },
+      },
+    })
+  )
+  .listen(3000)
+
+type A = (typeof app)["_use"][0]["_options"]["resolvers"]["Query"]["books"]
+//   ^?
 console.log(
   `🦊 Elysia is running at ${app.server?.hostname}:${app.server?.port}`
-);
+)
