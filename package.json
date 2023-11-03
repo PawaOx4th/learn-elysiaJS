@@ -9,6 +9,7 @@
   "dependencies": {
     "@apollo/server": "^4.9.5",
     "@elysiajs/apollo": "^0.7.0",
+    "@elysiajs/server-timing": "^0.7.0",
     "@graphql-codegen/cli": "^5.0.0",
     "@graphql-codegen/typescript": "^4.0.1",
     "@graphql-codegen/typescript-resolvers": "^4.0.1",
