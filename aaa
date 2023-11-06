@@ -5,11 +5,6 @@ type User {
     completed: Boolean
 }
 
-type Book {
-    id: Int
-    title: String
-}
-
 type Query {
     users(id: Int!): [User!]!
 }

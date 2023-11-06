@@ -15,7 +15,8 @@
     "@graphql-codegen/typescript-resolvers": "^4.0.1",
     "axios": "^1.6.0",
     "elysia": "latest",
-    "graphql": "^16.8.1"
+    "graphql": "^16.8.1",
+    "graphql-mobius": "^0.1.13"
   },
   "devDependencies": {
     "bun-types": "latest",
